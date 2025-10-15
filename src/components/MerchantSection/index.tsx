@@ -78,8 +78,6 @@ const settings = {
       settings: {
         slidesToShow: 1,
         centerPadding: "20px",
-        // centerMode: false,
-        // infinite: true,
       },
     },
   ],
@@ -88,7 +86,7 @@ const settings = {
 const MerchantSection = () => {
   return (
     <section className="w-full relative pt-10 pb-[200px] overflow-hidden">
-      <h2 className="text-4xl md:text-5xl mt-4 font-[900] text-center">
+      <h2 className="text-4xl md:text-5xl px-4 mt-4 font-[900] text-center">
         What <span className="text-primary">Merchants</span> Say
       </h2>
       <div className="mt-10">

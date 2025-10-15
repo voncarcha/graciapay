@@ -17,7 +17,7 @@ const ChooseSection = () => {
         <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-8 py-4">
           <span className="text-md md:text-lg text-white font-[400] flex-[0_0_40%]"></span>
           <span className="flex-[0_0_30%] text-white flex items-center justify-center">
-            <Image src="/images/logo.png" alt="Logo" width={56} height={56} />
+            <Image src="/images/logo.png" alt="Logo" width={56} height={56} className="h-auto" />
           </span>
           <span className="flex-[0_0_30%] text-white flex items-center justify-center">
             <span className="font-bold text-sm lg:text-lg">Tradional Providers</span>

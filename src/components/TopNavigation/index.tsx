@@ -19,6 +19,7 @@ const TopNavigation = () => {
               alt="Logo"
               width={200}
               height={56}
+              priority
             />
           </Link>
           <aside className="hidden items-center gap-4 lg:flex">

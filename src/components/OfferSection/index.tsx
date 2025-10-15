@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { appendSegmentCacheKeyPart } from "next/dist/shared/lib/segment-cache/segment-value-encoding";
 
 const OFFER_ITEMS = [
   {
