@@ -1,10 +1,39 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { CheckIcon, X } from "lucide-react";
+import { createStaggerAnimation, refreshScrollTriggersDelayed } from "@/lib/gsap";
 
 const ChooseSection = () => {
+  useEffect(() => {
+    const cleanupH2 = createStaggerAnimation(
+      ".choose-section article h2",
+      { delay: 120, duration: 0.8 }
+    );
+
+    const cleanupParagraph = createStaggerAnimation(
+      ".choose-section article p",
+      { delay: 200, duration: 0.8 }
+    );
+
+    const cleanupListItems = createStaggerAnimation(
+      ".choose-section li",
+      { delay: 260, duration: 0.8, staggerAmount: 0.6 }
+    );
+
+    const cleanupRefresh = refreshScrollTriggersDelayed(600);
+
+    return () => {
+      cleanupH2();
+      cleanupParagraph();
+      cleanupListItems();
+      cleanupRefresh();
+    };
+  }, []);
+
   return (
-    <section className="w-full relative px-4 py-10">
+    <section className="w-full relative px-4 py-10 choose-section">
       <article className="w-full max-w-[1280px] mx-auto">
         <h2 className="text-4xl md:text-5xl mt-4 font-[900] text-center">
           Why Choose <span className="text-primary">GraciaPay</span>

@@ -1,5 +1,8 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import Image from "next/image";
+import { createStaggerAnimation, refreshScrollTriggersDelayed } from "@/lib/gsap";
 
 const WHO_CAN_USE_ITEMS = [
   {
@@ -25,8 +28,34 @@ const WHO_CAN_USE_ITEMS = [
 ];
 
 const WhoCanUseSection = () => {
+  useEffect(() => {
+    const cleanupHeading = createStaggerAnimation(
+      ".who-can-use-section h2",
+      { delay: 150, duration: 0.8 }
+    );
+
+    const cleanupParagraphs = createStaggerAnimation(
+      ".who-can-use-section p",
+      { delay: 200, duration: 0.8, staggerAmount: 0.2 }
+    );
+
+    const cleanupListItems = createStaggerAnimation(
+      ".who-can-use-section li",
+      { delay: 250, duration: 0.8, staggerAmount: 0.6 }
+    );
+
+    const cleanupRefresh = refreshScrollTriggersDelayed(600);
+
+    return () => {
+      cleanupHeading();
+      cleanupParagraphs();
+      cleanupListItems();
+      cleanupRefresh();
+    };
+  }, []);
+
   return (
-    <section>
+    <section className="who-can-use-section">
       <article className="w-full max-w-[1280px] mx-auto text-center mb-[150px]">
         <h2 className="text-4xl md:text-5xl font-[900]">
           Who Can Use <span className="text-primary">GraciaPay?</span>
