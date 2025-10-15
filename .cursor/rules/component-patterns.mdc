@@ -1,0 +1,85 @@
+---
+globs: src/components/**/*.tsx
+description: Component patterns and best practices for GraciaPay
+---
+
+# Component Patterns and Best Practices
+
+## Component Architecture
+
+### Directory Structure
+Each component follows this pattern:
+```
+ComponentName/
+├── index.tsx          # Main component file
+└── (optional files)   # Additional files like Icons.tsx
+```
+
+### Component Naming
+- Use PascalCase for component names
+- Use descriptive names that indicate purpose (e.g., `HeroSection`, `FooterSection`)
+- Section components end with "Section" suffix
+- Utility components use descriptive names (e.g., `Button`, `TopNavigation`)
+
+## Component Patterns
+
+### Section Components
+Section components should:
+- Be self-contained and focused on a single page section
+- Use semantic HTML elements (`<section>`, `<article>`, `<header>`)
+- Include proper accessibility attributes
+- Follow the design system color scheme
+
+Example structure:
+```typescript
+const SectionName = () => {
+  return (
+    <section className="section-specific-classes">
+      <article className="content-wrapper">
+        {/* Section content */}
+      </article>
+    </section>
+  );
+};
+```
+
+### Reusable Components
+For components like [Button](mdc:src/components/Button/index.tsx):
+- Define variant types with union types
+- Use base classes with variant-specific overrides
+- Accept className prop for customization
+- Spread additional props for flexibility
+- Include proper TypeScript types
+
+### Component Props
+- Always define explicit prop types
+- Use optional props with default values
+- Include `className` prop for styling flexibility
+- Use `React.ReactNode` for children
+- Spread additional HTML attributes when appropriate
+
+## Styling Patterns
+
+### CSS Classes
+- Use Tailwind CSS utility classes
+- Combine base classes with variant-specific classes
+- Use template literals for dynamic class composition
+- Follow the pattern: `${baseClasses} ${variantClasses[variant]} ${className}`
+
+### Responsive Design
+- Use Tailwind responsive prefixes (`sm:`, `md:`, `lg:`, `xl:`)
+- Design mobile-first
+- Test across different screen sizes
+
+## Accessibility
+- Use semantic HTML elements
+- Include proper ARIA attributes when needed
+- Ensure keyboard navigation works
+- Maintain proper color contrast ratios
+- Use descriptive alt text for images
+
+## Performance
+- Use React.memo for expensive components if needed
+- Optimize images using Next.js Image component
+- Lazy load non-critical components
+- Minimize bundle size with proper imports

@@ -4,18 +4,19 @@ import Image from "next/image";
 const AboutSection = () => {
   return (
     <section className="w-full relative px-6 py-10 h-[800px] flex items-center">
-      <article className="w-full max-w-[1280px] mx-auto flex justify-end">
-        <picture className="absolute top-[50%] translate-y-[-50%] left-[-100px]">
+      <article className="w-full max-w-[1280px] mx-auto flex items-center justify-end lg:flex-row flex-col lg:gap-0 gap-6">
+        <picture className="block">
+          <source srcSet="/images/bg-about.webp" type="image/webp" />
           <Image
             src="/images/bg-about.png"
             alt="About Section Background"
-            width={1092}
-            height={1092}
+            width={500}
+            height={477}
             sizes="100vw"
           />
         </picture>
-        <div className="max-w-[780px] relative z-10">
-          <h2 className="text-5xl font-[900]">
+        <div className="lg:max-w-[60%] max-w-full relative z-10 text-center lg:text-left">
+          <h2 className="text-4xl md:text-5xl font-[900]">
             About <span className="text-primary">GraciaPay</span>
           </h2>
           <p className="text-lg font-[400] mt-6">

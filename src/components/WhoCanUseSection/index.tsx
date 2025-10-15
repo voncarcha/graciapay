@@ -28,15 +28,15 @@ const WhoCanUseSection = () => {
   return (
     <section>
       <article className="w-full max-w-[1280px] mx-auto text-center mb-[150px]">
-        <h2 className="text-5xl font-[900]">
+        <h2 className="text-4xl md:text-5xl font-[900]">
           Who Can Use <span className="text-primary">GraciaPay?</span>
         </h2>
         <p className="text-lg font-[400] mt-6">
           We serve a wide range of businesses
         </p>
       </article>
-      <div className="w-full h-[300px] bg-dark-blue">
-        <ul className="flex items-center gap-4 mx-auto justify-center relative top-[-100px]">
+      <div className="w-full h-auto lg:h-[300px] bg-dark-blue">
+        <ul className="flex items-center gap-4 mx-auto justify-center relative top-[-100px] px-6 flex-wrap lg:flex-nowrap">
           {WHO_CAN_USE_ITEMS.map((item) => (
             <li
               key={item.title}
@@ -56,7 +56,7 @@ const WhoCanUseSection = () => {
             </li>
           ))}
         </ul>
-        <p className="text-lg font-[400] mt-[-50px] text-center text-white">
+        <p className="text-lg font-[400] mt-[-50px] text-center text-white lg:pb-0 pb-10 px-6">
           If you’re a Philippine-registered business with a bank account and
           valid documents, you can start in just 1–3 days.
         </p>

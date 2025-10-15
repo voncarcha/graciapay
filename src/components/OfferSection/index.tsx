@@ -49,21 +49,24 @@ const OFFER_ITEMS = [
 
 const OfferSection = () => {
   return (
-    <section className="w-full relative px-6 py-10 flex items-center my-[200px]">
-      <article className="w-full max-w-[1280px] mx-auto flex justify-center gap-6">
+    <section className="w-full relative px-4 py-10 flex items-center my-[200px] max-md:mb-[100px]">
+      <article className="w-full max-w-[1280px] mx-auto flex lg:flex-row flex-col justify-center gap-6">
         <div className="flex-1">
-          <h2 className="text-5xl mt-4 font-[900] text-center">
+          <h2 className="text-4xl md:text-5xl mt-4 font-[900] text-center">
             What We <span className="text-primary">Offer</span>
           </h2>
-          <Image
-            src="/images/bg-offer.png"
-            alt="Offer Section Background"
-            width={1092}
-            height={1092}
-            sizes="100vw"
-          />
+          <picture className="block mt-4 mx-auto lg:max-w-full max-w-[420px]">
+            <source srcSet="/images/bg-offer.webp" type="image/webp" />
+            <Image
+              src="/images/bg-offer.png"
+              alt="Offer Section Background"
+              width={1092}
+              height={1092}
+              sizes="100vw"
+            />
+          </picture>
         </div>
-        <div className="max-w-[720px] relative z-10">
+        <div className="lg:max-w-[60%] max-w-full relative z-10">
           <ul className="space-y-6">
             {OFFER_ITEMS.map((item) => (
               <li

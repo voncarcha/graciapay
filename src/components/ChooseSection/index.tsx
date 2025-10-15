@@ -4,9 +4,9 @@ import { CheckIcon, X } from "lucide-react";
 
 const ChooseSection = () => {
   return (
-    <section className="w-full relative px-6 py-10">
+    <section className="w-full relative px-4 py-10">
       <article className="w-full max-w-[1280px] mx-auto">
-        <h2 className="text-5xl mt-4 font-[900] text-center">
+        <h2 className="text-4xl md:text-5xl mt-4 font-[900] text-center">
           Why Choose <span className="text-primary">GraciaPay</span>
         </h2>
         <p className="text-lg font-[400] mt-6 text-center">
@@ -15,16 +15,16 @@ const ChooseSection = () => {
       </article>
       <ul className="mt-10 max-w-[1280px] mx-auto flex flex-col gap-4">
         <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-8 py-4">
-          <span className="text-lg text-white font-[400] flex-[0_0_40%]"></span>
+          <span className="text-md md:text-lg text-white font-[400] flex-[0_0_40%]"></span>
           <span className="flex-[0_0_30%] text-white flex items-center justify-center">
             <Image src="/images/logo.png" alt="Logo" width={56} height={56} />
           </span>
           <span className="flex-[0_0_30%] text-white flex items-center justify-center">
-            <span className="font-bold text-lg">Tradional Provides</span>
+            <span className="font-bold text-sm lg:text-lg">Tradional Providers</span>
           </span>
         </li>
-        <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-8 py-6">
-          <p className="text-lg text-white font-[400] flex-[0_0_40%]">
+        <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-4 md:px-8 py-6">
+          <p className="text-md md:text-lg text-white font-[400] flex-[0_0_40%]">
             Regulated under BSP (Powered by: GraciaPay)
           </p>
           <span className="flex-[0_0_30%] text-white flex items-center justify-center">
@@ -34,8 +34,8 @@ const ChooseSection = () => {
             <CheckIcon className="w-6 h-6 text-[#ECD145]" />
           </span>
         </li>
-        <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-8 py-6">
-          <p className="text-lg text-white font-[400] flex-[0_0_40%]">
+        <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-4 md:px-8 py-6">
+          <p className="text-md md:text-lg text-white font-[400] flex-[0_0_40%]">
             QRPH & e-wallet support
           </p>
           <span className="flex-[0_0_30%] text-white flex items-center justify-center">
@@ -46,8 +46,8 @@ const ChooseSection = () => {
           </span>
         </li>
 
-        <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-8 py-6">
-          <p className="text-lg text-white font-[400] flex-[0_0_40%]">
+        <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-4 md:px-8 py-6">
+          <p className="text-md md:text-lg text-white font-[400] flex-[0_0_40%]">
             Unified dashboard
           </p>
           <span className="flex-[0_0_30%] text-white flex items-center justify-center">
@@ -58,8 +58,8 @@ const ChooseSection = () => {
           </span>
         </li>
 
-        <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-8 py-6">
-          <p className="text-lg text-white font-[400] flex-[0_0_40%]">
+        <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-4 md:px-8 py-6">
+          <p className="text-md md:text-lg text-white font-[400] flex-[0_0_40%]">
             Onboarding in 72 hours
           </p>
           <span className="flex-[0_0_30%] text-white flex items-center justify-center">
@@ -70,8 +70,8 @@ const ChooseSection = () => {
           </span>
         </li>
 
-        <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-8 py-6">
-          <p className="text-lg text-white font-[400] flex-[0_0_40%]">
+        <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-4 md:px-8 py-6">
+          <p className="text-md md:text-lg text-white font-[400] flex-[0_0_40%]">
             Real-time transaction logs
           </p>
           <span className="flex-[0_0_30%] text-white flex items-center justify-center">
@@ -82,8 +82,8 @@ const ChooseSection = () => {
           </span>
         </li>
 
-        <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-8 py-6">
-          <p className="text-lg text-white font-[400] flex-[0_0_40%]">
+        <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-4 md:px-8 py-6">
+          <p className="text-md md:text-lg text-white font-[400] flex-[0_0_40%]">
             End-to-end customer support
           </p>
           <span className="flex-[0_0_30%] text-white flex items-center justify-center">
@@ -94,8 +94,8 @@ const ChooseSection = () => {
           </span>
         </li>
 
-        <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-8 py-6">
-          <p className="text-lg text-white font-[400] flex-[0_0_40%]">
+        <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-4 md:px-8 py-6">
+          <p className="text-md md:text-lg text-white font-[400] flex-[0_0_40%]">
             Developer-friendly API
           </p>
           <span className="flex-[0_0_30%] text-white flex items-center justify-center">
@@ -106,15 +106,15 @@ const ChooseSection = () => {
           </span>
         </li>
 
-        <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-8 py-6">
-          <p className="text-lg text-white font-[400] flex-[0_0_40%]">
+        <li className="flex items-center gap-2 bg-dark-blue rounded-2xl px-4 md:px-8 py-6">
+          <p className="text-md md:text-lg text-white font-[400] flex-[0_0_40%]">
             Customization
           </p>
           <span className="flex-[0_0_30%] text-white flex items-center justify-center">
             <CheckIcon className="w-6 h-6 text-[#ECD145]" />
           </span>
           <span className="flex-[0_0_30%] text-white flex items-center justify-center">
-            <span className="text-md">Limited</span>
+            <span className="text-sm md:text-md">Limited</span>
           </span>
         </li>
       </ul>

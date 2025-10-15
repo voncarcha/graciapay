@@ -1,0 +1,101 @@
+---
+globs: src/app/**/*.tsx,src/components/**/*.tsx
+description: Next.js specific patterns and optimizations for GraciaPay
+---
+
+# Next.js Patterns and Optimizations
+
+## App Router Structure
+
+### File-based Routing
+- Use [src/app/](mdc:src/app/) directory for App Router
+- [page.tsx](mdc:src/app/page.tsx) defines the homepage route
+- [layout.tsx](mdc:src/app/layout.tsx) provides the root layout
+
+### Layout Patterns
+Follow the structure in [layout.tsx](mdc:src/app/layout.tsx):
+- Import fonts using `next/font/google`
+- Define metadata for SEO
+- Include global CSS imports
+- Use proper HTML structure with `lang` attribute
+
+### Metadata Configuration
+```typescript
+export const metadata: Metadata = {
+  title: "GraciaPay - One Platform",
+  description: "GraciaPay is the official merchant payment platform under GraciaPay, a BSP-regulated financial institution in the Philippines.",
+};
+```
+
+## Performance Optimizations
+
+### Image Optimization
+- Use `next/image` for all images
+- Optimize images in [public/images/](mdc:public/images/)
+- Use appropriate image formats (WebP, AVIF when possible)
+- Implement proper alt text for accessibility
+
+### Font Optimization
+- Use `next/font/google` for web fonts
+- Configure font variables for CSS usage
+- Preload critical fonts
+
+### Bundle Optimization
+- Use dynamic imports for code splitting when appropriate
+- Minimize external dependencies
+- Use Tree shaking for unused code
+
+## Component Integration
+
+### Import Patterns
+- Use absolute imports with `@/` alias
+- Import components by directory name
+- Keep imports organized and clean
+
+### Static Generation
+- Leverage static generation for landing page content
+- Use `generateStaticParams` for dynamic routes if needed
+- Optimize for Core Web Vitals
+
+## SEO and Accessibility
+
+### Semantic HTML
+- Use proper heading hierarchy (`h1`, `h2`, `h3`)
+- Include semantic elements (`<section>`, `<article>`, `<header>`)
+- Implement proper ARIA attributes
+
+### Meta Tags
+- Define comprehensive metadata
+- Include Open Graph tags for social sharing
+- Use structured data when appropriate
+
+## Development Workflow
+
+### Scripts
+Use the scripts defined in [package.json](mdc:package.json):
+- `npm run dev` - Development server
+- `npm run build` - Production build
+- `npm run start` - Production server
+- `npm run lint` - ESLint checking
+
+### TypeScript Integration
+- Leverage Next.js TypeScript support
+- Use proper type definitions for API routes
+- Follow strict TypeScript configuration
+
+## Best Practices
+
+### Code Organization
+- Keep components focused and reusable
+- Use proper separation of concerns
+- Follow Next.js conventions for file naming
+
+### Performance Monitoring
+- Monitor Core Web Vitals
+- Use Next.js analytics when deployed
+- Optimize for mobile performance
+
+### Security
+- Follow Next.js security best practices
+- Use proper CSP headers
+- Validate all user inputs

@@ -1,0 +1,104 @@
+---
+globs: *.css,*.tsx
+description: Styling and design system guidelines for GraciaPay
+---
+
+# Styling and Design System Guidelines
+
+## Design System Colors
+
+### Primary Color Palette
+Based on [globals.css](mdc:src/app/globals.css), use these CSS custom properties:
+
+```css
+--color-primary: #9d0000      /* Main brand red */
+--color-secondary: #0037af    /* Blue accent */
+--color-red: #b7151b          /* Button/CTA red */
+--color-dark-blue: #000730    /* Header/dark text */
+--color-white: #ffffff         /* Background/text */
+--color-black: #000000         /* Pure black */
+--color-gray: #808080          /* Medium gray */
+--color-light-gray: #D9D9D9   /* Light gray */
+--color-dark-gray: #404040    /* Dark gray */
+```
+
+### Usage Guidelines
+- **Primary (#9d0000)**: Main brand color, highlights, important elements
+- **Secondary (#0037af)**: Accent color, secondary actions
+- **Red (#b7151b)**: Call-to-action buttons, alerts
+- **Dark Blue (#000730)**: Headers, primary text
+- **White (#ffffff)**: Backgrounds, light text on dark backgrounds
+
+## Tailwind CSS Configuration
+
+### Custom Theme
+The project uses Tailwind CSS v4 with custom theme configuration in [globals.css](mdc:src/app/globals.css):
+- Custom color variables are defined in `@theme` block
+- Colors are accessible via Tailwind utilities (e.g., `text-primary`, `bg-secondary`)
+
+### Typography
+- **Font**: Inter (loaded in [layout.tsx](mdc:src/app/layout.tsx))
+- **Font weights**: Use numeric values (e.g., `font-[400]`, `font-[500]`, `font-[900]`)
+- **Line heights**: Use decimal values (e.g., `leading-[1.2]`, `leading-[1.5]`)
+
+## Component Styling Patterns
+
+### Button Styling
+Follow the pattern from [Button component](mdc:src/components/Button/index.tsx):
+```typescript
+const baseClasses = "px-4 py-2 rounded-full transition-all duration-300 cursor-pointer font-[500]";
+const variantClasses: Record<ButtonVariant, string> = {
+  default: "text-white border-transparent h-[44px] bg-gradient-to-r from-primary to-red hover:bg-gradient-to-l",
+  outlined: "border-2 text-red border-red hover:border-primary hover:text-primary",
+};
+```
+
+### Section Styling
+- Use consistent spacing with Tailwind utilities
+- Apply proper responsive breakpoints
+- Use semantic class names for complex layouts
+
+## Special Effects
+
+### Glassmorphism
+Use the `.bg-glass` utility class for glassmorphism effects:
+```css
+.bg-glass {
+  background: rgba(0, 7, 48, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+```
+
+### Carousel Styling
+Custom styles for react-slick carousel in [globals.css](mdc:src/app/globals.css):
+- Dots positioned below content (`bottom: -60px`)
+- Primary color for active dots
+- Dark blue for inactive dots
+
+## Responsive Design
+
+### Breakpoint Strategy
+- Mobile-first approach
+- Use Tailwind responsive prefixes: `sm:`, `md:`, `lg:`, `xl:`
+- Test on multiple screen sizes
+
+### Layout Patterns
+- Use `max-w-*` utilities for content width constraints
+- Apply `mx-auto` for centering
+- Use flexbox utilities for alignment
+
+## Best Practices
+
+### CSS Organization
+- Keep global styles in [globals.css](mdc:src/app/globals.css)
+- Use Tailwind utilities for component-specific styling
+- Avoid custom CSS unless necessary
+- Use CSS custom properties for consistent theming
+
+### Performance
+- Use Tailwind's purging to remove unused styles
+- Optimize images and assets
+- Minimize custom CSS
+- Use efficient selectors

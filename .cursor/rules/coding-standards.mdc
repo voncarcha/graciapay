@@ -1,0 +1,73 @@
+---
+globs: *.ts,*.tsx
+description: TypeScript and React coding standards for GraciaPay
+---
+
+# Coding Standards and Conventions
+
+## TypeScript Standards
+
+### Type Definitions
+- Always define explicit types for component props
+- Use `React.FC<Props>` for functional components
+- Define custom types with descriptive names (e.g., `ButtonVariant`, `ButtonProps`)
+- Use union types for variants (e.g., `type ButtonVariant = "default" | "outlined"`)
+
+### Import Organization
+```typescript
+// 1. React imports first
+import React from "react";
+
+// 2. External library imports
+import { Inter } from "next/font/google";
+
+// 3. Internal imports using @/ alias
+import TopNavigation from "@/components/TopNavigation";
+```
+
+### Component Structure
+```typescript
+// Type definitions first
+type ComponentProps = {
+  // prop definitions
+};
+
+// Component implementation
+const ComponentName: React.FC<ComponentProps> = ({ prop1, prop2 }) => {
+  return (
+    // JSX
+  );
+};
+
+// Default export
+export default ComponentName;
+```
+
+## React Best Practices
+
+### Component Patterns
+- Use functional components with hooks
+- Destructure props in function parameters
+- Use default parameters for optional props
+- Always include `React.ReactNode` for children props
+
+### Event Handling
+- Use proper TypeScript event types
+- Destructure event handlers from props using `...props` spread
+
+### State Management
+- Use React hooks for local state
+- Prefer composition over complex state management for this landing page
+
+## Code Quality
+- Follow ESLint configuration from [eslint.config.mjs](mdc:eslint.config.mjs)
+- Use strict TypeScript settings from [tsconfig.json](mdc:tsconfig.json)
+- Maintain consistent indentation and formatting
+- Use meaningful variable and function names
+- Add comments for complex business logic
+
+## File Organization
+- One component per file
+- Export components as default exports
+- Keep components focused on single responsibility
+- Use descriptive file and directory names

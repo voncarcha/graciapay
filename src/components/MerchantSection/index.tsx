@@ -46,15 +46,49 @@ const settings = {
   centerMode: true,
   infinite: true,
   centerPadding: "160px",
-  slidesToShow: 4,
+  slidesToShow: 3,
   speed: 500,
+  autoplay: true,
+  autoplaySpeed: 5000,
   dots: true,
+  responsive: [
+    {
+      breakpoint: 1280,
+      settings: {
+        slidesToShow: 2,
+        centerPadding: "120px",
+      },
+    },
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        centerPadding: "80px",
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        centerPadding: "40px",
+      },
+    },
+    {
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 1,
+        centerPadding: "20px",
+        // centerMode: false,
+        // infinite: true,
+      },
+    },
+  ],
 };
 
 const MerchantSection = () => {
   return (
     <section className="w-full relative pt-10 pb-[200px] overflow-hidden">
-      <h2 className="text-5xl mt-4 font-[900] text-center">
+      <h2 className="text-4xl md:text-5xl mt-4 font-[900] text-center">
         What <span className="text-primary">Merchants</span> Say
       </h2>
       <div className="mt-10">

@@ -7,8 +7,8 @@ import { FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from "./Icons";
 
 const FooterSection = () => {
   return (
-    <section className="w-full relative px-6 py-20 bg-dark-blue">
-      <footer className="flex max-w-[1280px] bg-dark-blue mx-auto gap-20 justify-between">
+    <section className="w-full relative px-4 py-20 bg-dark-blue">
+      <footer className="flex max-w-[1280px] bg-dark-blue mx-auto gap-10 xl:gap-20 justify-between flex-col lg:flex-row">
         <div className="flex-[0_0_50%]">
           <h3 className="text-2xl font-[900] text-white">GraciaPay</h3>
           <ul className="flex flex-col items-center gap-4 mt-6">
@@ -51,10 +51,10 @@ const FooterSection = () => {
             </li>
           </ul>
         </div>
-        <div className="flex-1">
+        <div className="flex-auto">
           <h3 className="text-2xl font-[900] text-white">Subscribe</h3>
           <form className="mt-6 flex gap-4">
-            <div className="relative w-[320px] rounded-full bg-white">
+            <div className="relative max-w-[320px] w-full rounded-full bg-white">
               <MailIcon className="w-5 h-5 absolute top-1/2 left-4 -translate-y-1/2 text-dark-blue" />
               <input
                 required

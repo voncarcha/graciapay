@@ -1,0 +1,41 @@
+---
+alwaysApply: true
+description: Project structure and architecture guidelines for GraciaPay
+---
+
+# GraciaPay Project Structure Guide
+
+## Project Overview
+GraciaPay is a Next.js 15 application with TypeScript, Tailwind CSS v4, and React 19. It's a payment platform landing page for a BSP-regulated financial institution in the Philippines.
+
+## Key Files and Structure
+
+### Main Entry Points
+- **Main page**: [src/app/page.tsx](mdc:src/app/page.tsx) - Homepage with all sections
+- **Layout**: [src/app/layout.tsx](mdc:src/app/layout.tsx) - Root layout with metadata and font configuration
+- **Global styles**: [src/app/globals.css](mdc:src/app/globals.css) - Tailwind imports and custom CSS variables
+
+### Component Architecture
+All components are organized in [src/components/](mdc:src/components/) with the following structure:
+- Each component has its own directory with an `index.tsx` file
+- Components follow a section-based naming convention (e.g., `HeroSection`, `AboutSection`)
+- Shared components like `Button` are in their own directories
+
+### Configuration Files
+- **TypeScript**: [tsconfig.json](mdc:tsconfig.json) - Uses path aliases with `@/*` pointing to `./src/*`
+- **Package**: [package.json](mdc:package.json) - Next.js 15, React 19, Tailwind CSS v4, Lucide React icons
+- **ESLint**: [eslint.config.mjs](mdc:eslint.config.mjs) - Next.js core web vitals and TypeScript rules
+
+### Assets
+- **Images**: [public/images/](mdc:public/images/) - Contains all static images including logos, backgrounds, and thumbnails
+- **Icons**: Uses Lucide React for icon components
+
+## Import Patterns
+- Use `@/` alias for all internal imports (configured in tsconfig.json)
+- Components are imported by their directory name (e.g., `import TopNavigation from "@/components/TopNavigation"`)
+- External libraries are imported normally (e.g., `import React from "react"`)
+
+## File Naming Conventions
+- Components use PascalCase for directories and files
+- All component files are named `index.tsx` within their directories
+- Use descriptive names that indicate the component's purpose (e.g., `HeroSection`, `FooterSection`)
