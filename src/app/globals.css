@@ -15,10 +15,15 @@ Button color: #b7151b */
   --color-white: #ffffff;
   --color-black: #000000;
   --color-gray: #808080;
-  --color-light-gray: #D9D9D9;
+  --color-light-gray: #d9d9d9;
   --color-dark-gray: #404040;
   --color-red: #b7151b;
   --color-dark-blue: #000730;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -42,7 +47,8 @@ body {
   color: var(--color-dark-blue);
 }
 
-.slick-dots li button:hover:before, .slick-dots li button:focus:before {
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
   opacity: inherit;
 }
 
@@ -52,6 +58,22 @@ body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-bg {
+  background-color:hsla(0,0%,100%,1);
+  background-image:
+  radial-gradient(at 96% 100%, hsla(0,100%,30%,1) 0px, transparent 50%),
+  radial-gradient(at 8% 89%, hsla(221,100%,34%,1) 0px, transparent 50%),
+  radial-gradient(at 54% 52%, hsla(50,81%,59%,1) 0px, transparent 50%);
+}
+
+/* Brand Section Styles */
+/* Brand logos container and animation */
+.brand-container {
+  width: 100%;
+  mask: linear-gradient(90deg, transparent, var(--color-dark-blue) 20%, var(--color-dark-blue) 80%, transparent);
+  -webkit-mask: linear-gradient(90deg, transparent, var(--color-dark-blue) 20%, var(--color-dark-blue) 80%, transparent);
 }
 /* 
 @theme inline {

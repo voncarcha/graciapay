@@ -69,7 +69,7 @@ const FooterSection = () => {
           </form>
 
           <h3 className="text-2xl font-[900] text-white mt-10">Contact Us</h3>
-          <div className="mt-4 flex gap-4 items-center">
+          <div className="mt-4 flex flex-col gap-4 items-start">
             <div className="flex items-center gap-2">
               <MailIcon className="w-4 h-4 text-white" />
               <Link

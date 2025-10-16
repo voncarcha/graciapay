@@ -8,6 +8,7 @@ import MerchantSection from "@/components/MerchantSection";
 import ChooseSection from "@/components/ChooseSection";
 import GovSection from "@/components/GovSection";
 import FooterSection from "@/components/FooterSection";
+import PaymentPartnerSection from "@/components/PaymentPartnerSection";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <TopNavigation />
       <HeroSection />
       <AboutSection />
+      <PaymentPartnerSection />
       <OfferSection />
       <WhoCanUseSection />
       <RequirementSection />

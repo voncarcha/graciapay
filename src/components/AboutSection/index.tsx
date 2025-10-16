@@ -21,15 +21,15 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section className="w-full relative px-6 py-10 h-[800px] flex items-center">
+    <section className="w-full relative px-6 py-10 flex items-center" id="about">
       <article className="w-full max-w-[1280px] mx-auto flex items-center justify-end lg:flex-row flex-col lg:gap-0 gap-6">
         <picture className="about-animate block">
           <source srcSet="/images/bg-about.webp" type="image/webp" />
           <Image
             src="/images/bg-about.png"
             alt="About Section Background"
-            width={500}
-            height={477}
+            width={375}
+            height={358}
             sizes="100vw"
           />
         </picture>

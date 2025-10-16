@@ -1,6 +1,6 @@
 import React from "react";
 
-type ButtonVariant = "default" | "outlined";
+type ButtonVariant = "default" | "outlined" | "large";
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -12,6 +12,7 @@ const baseClasses = "px-4 py-2 rounded-full transition-all duration-300 cursor-p
 
 const variantClasses: Record<ButtonVariant, string> = {
   default: "text-white border-transparent h-[44px] bg-gradient-to-r from-primary to-red hover:bg-gradient-to-l",
+  large: "text-white text-lg border-transparent h-[54px] bg-gradient-to-r from-primary to-red hover:bg-gradient-to-l",
   outlined: "border-2 text-red border-red hover:border-primary hover:text-primary",
 };
 
