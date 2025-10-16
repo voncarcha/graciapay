@@ -2,40 +2,41 @@
 
 import React from "react";
 import Slider from "react-slick";
+import { Quote } from "lucide-react";
 
 const MERCHANT_ITEMS = [
   {
     id: 1,
     description:
-      "“Onboarded in just two days, we instantly gained unified access to QRPH, GCash, and direct bank transfers through a single, integrated payment interface.”",
+      "Onboarded in just two days, we instantly gained unified access to QRPH, GCash, and direct bank transfers through a single, integrated payment interface.",
     name: "Dong A",
     position: "Restaurant Owner",
   },
   {
     id: 2,
     description:
-      "“We were fully onboarded in two days. QRPH, GCash, and bank transfers — all in one screen.”",
+      "We were fully onboarded in two days. QRPH, GCash, and bank transfers — all in one screen.",
     name: "Zoe",
     position: "Coffee Shop Owner",
   },
   {
     id: 3,
     description:
-      "“GraciaPayPay’s responsive support and seamless integration with local banks and GCash make it a standout.”",
+      "GraciaPayPay’s responsive support and seamless integration with local banks and GCash make it a standout.",
     name: "Alyssa Manalo",
     position: "PinoyDeals",
   },
   {
     id: 4,
     description:
-      "“Onboarded in just two days, we instantly gained unified access to QRPH, GCash, and direct bank transfers through a single, integrated payment interfaceGraciaPayPay is a fast, reliable way to accept payments from banks and e-wallets nationwide.”",
+      "Onboarded in just two days, we instantly gained unified access to QRPH, GCash, and direct bank transfers through a single, integrated payment interfaceGraciaPayPay is a fast, reliable way to accept payments from banks and e-wallets nationwide.",
     name: "Maria De Guzman",
     position: "RestaurTechDirect PH",
   },
   {
     id: 5,
     description:
-      "“GraciaPayPay helped us organize payments and speed up settlements. Perfect for growing brands.”",
+      "GraciaPayPay helped us organize payments and speed up settlements. Perfect for growing brands.",
     name: "Tina M",
     position: "Restaurant Owner",
   },
@@ -87,11 +88,16 @@ const MerchantSlider = () => {
     <Slider {...settings}>
       {MERCHANT_ITEMS.map((item) => (
         <div key={item.id} className="px-2">
-          <article className="border-secondary bg-dark-blue border rounded-2xl px-6 py-4 h-[220px] flex flex-col justify-between">
-            <p className="text-sm font-[400] text-white">{item.description}</p>
-            <div className="flex items-center text-white gap-2 mt-6 text-xs font-[400]">
-              <span>— {item.name},</span>
-              <span>{item.position}</span>
+          <article className="border-secondary bg-dark-blue border rounded-2xl px-6 py-4 h-[310px] md:h-[280px] flex flex-col justify-between">
+            <div className="">
+              <Quote className="w-6 h-6 text-white mb-2" />
+              <p className="text-sm md:text-md font-[400] text-white">
+                {item.description}
+              </p>
+            </div>
+            <div className="text-white mt-6 text-xs font-[700]">
+              <span>— {item.name}</span>
+              <span>, {item.position}</span>
             </div>
           </article>
         </div>
