@@ -1,0 +1,67 @@
+---
+description: Typing conventions for Strapi v4 responses and media in GraciaPay
+globs: "*.ts,*.tsx"
+---
+
+## Base Types (Strapi v4)
+```ts
+export type StrapiId = number;
+
+export type StrapiResponse<T> = {
+  data: T;
+  meta?: Record<string, unknown>;
+};
+
+export type StrapiCollectionItem<T> = {
+  id: StrapiId;
+  attributes: T;
+};
+
+export type StrapiCollectionResponse<T> = StrapiResponse<StrapiCollectionItem<T>[]>;
+export type StrapiSingleResponse<T> = StrapiResponse<StrapiCollectionItem<T>>;
+
+export type StrapiImageFormat = {
+  url: string;
+  width: number;
+  height: number;
+};
+
+export type StrapiMedia = {
+  data: null | {
+    id: StrapiId;
+    attributes: {
+      url: string;
+      width?: number;
+      height?: number;
+      alternativeText?: string;
+      formats?: Record<string, StrapiImageFormat>;
+    };
+  };
+};
+```
+
+## Normalization Helpers
+When consuming in components, normalize to app-friendly shapes:
+
+```ts
+export const toAbsoluteUrl = (path: string, base: string) => new URL(path, base).toString();
+
+export const unwrapMedia = (
+  media: StrapiMedia | null | undefined,
+  baseUrl: string
+) => {
+  if (!media?.data) return null;
+  const a = media.data.attributes;
+  return {
+    src: toAbsoluteUrl(a.url, baseUrl),
+    width: a.width ?? 0,
+    height: a.height ?? 0,
+    alt: a.alternativeText ?? '',
+  };
+};
+```
+
+## Component Usage
+- Keep components typed against normalized shapes.
+- Perform response-to-view-model mapping in server code, not in JSX.
+

@@ -1,0 +1,44 @@
+---
+description: Fetch, caching, ISR, and preview patterns for Strapi
+globs: "*.ts,*.tsx"
+---
+
+## Wrapper Guidance
+Create a small helper in `src/lib/strapi.ts` to centralize:
+- Base URL resolution from `NEXT_PUBLIC_STRAPI_URL`
+- Headers (JSON, optional Bearer token from server env)
+- Query building for `populate`, `filters`, `fields`, `sort`, `pagination`
+- Next.js caching controls (`revalidate`, `tags`, `cache`)
+- Typed result and error handling
+
+### Suggested API
+```ts
+type StrapiRequestOptions = {
+  path: string; // e.g., '/api/articles'
+  search?: Record<string, string | number | boolean | undefined>;
+  init?: RequestInit & { next?: { revalidate?: number; tags?: string[] } };
+  auth?: boolean; // add Authorization if true (server-only)
+};
+
+export const fetchFromStrapi = async <T>(opts: StrapiRequestOptions): Promise<T> => { /* ... */ };
+```
+
+## Caching Patterns
+- Default pages: `revalidate` 300s.
+- Rapidly changing lists: `revalidate` 60s.
+- Draft preview/admin: `cache: 'no-store'` and `publicationState=draft`.
+- Tag responses for selective revalidation via `revalidateTag`.
+
+## Example Usage (Server Component)
+```ts
+const data = await fetchFromStrapi<{ data: unknown }>({
+  path: '/api/articles',
+  search: { populate: 'cover', sort: 'publishedAt:desc' },
+  init: { next: { revalidate: 300, tags: ['articles'] } },
+});
+```
+
+## Errors
+- Throw or return a typed error object with `status`, `message`, `details`.
+- Log server-side; show generic UI messages to users.
+

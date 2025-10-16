@@ -1,0 +1,26 @@
+---
+description: Environment variables and setup for Strapi integration
+globs: "*.ts,*.tsx"
+---
+
+## Required Environment Variables
+- `NEXT_PUBLIC_STRAPI_URL` — Base URL of Strapi (e.g., `https://cms.example.com`)
+
+## Optional (Server-only)
+- `STRAPI_API_TOKEN` — Strapi API Token for authenticated requests (keep server-side)
+- `STRAPI_PREVIEW_SECRET` — Secret for Next.js draft preview mode
+
+## .env.sample
+Add the following entries to [.env.sample](mdc:.env.sample):
+
+```
+NEXT_PUBLIC_STRAPI_URL=
+STRAPI_API_TOKEN=
+STRAPI_PREVIEW_SECRET=
+```
+
+## Usage
+- Client components may read `NEXT_PUBLIC_STRAPI_URL` only.
+- Server components/route handlers may read `STRAPI_API_TOKEN` and set `Authorization: Bearer ${STRAPI_API_TOKEN}` when needed.
+- Never expose `STRAPI_API_TOKEN` to the browser or serialize it to the client.
+

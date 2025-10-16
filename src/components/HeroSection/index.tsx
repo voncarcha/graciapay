@@ -2,17 +2,24 @@ import React from "react";
 import Image from "next/image";
 import Button from "../Button";
 
-const HeroSection: React.FC = () => {
+type HeroSectionProps = {
+  title?: string | null;
+  description?: string | null;
+};
+
+const HeroSection: React.FC<HeroSectionProps> = ({
+  title = "This is the title",
+  description = "This is the description, please edit this in the CMS",
+}) => {
   return (
     <section className="w-full hero-bg hero-section">
-      <div className="relative max-w-[1280px] mx-auto pt-[200px] lg:pt-[300px] pb-[150px] lg:pb-[200px]">
-        <article className="w-full max-w-[750px] px-4 relative z-10">
-          <h1 className="text-4xl md:text-7xl font-[900] leading-[1.1] text-shadow-lg">
-            One platform. Every payment. Everywhere.
+      <div className="relative max-w-[1280px] mx-auto h-[600px] md:h-[700px] xl:h-[900px] flex items-center">
+        <article className="w-full max-w-[750px] px-4 relative z-10 mt-[50px]">
+          <h1 className="text-4xl md:text-5xl xl:text-7xl font-[900] leading-[1.1] text-shadow-lg">
+            {title}
           </h1>
           <p className="text-white text-lg md:text-xl font-[400] leading-[1.5] mt-6 max-w-[600px] text-shadow-lg">
-            GraciaPay is the official merchant payment platform under GraciaPay,
-            a BSP-regulated financial institution in the Philippines.
+            {description}
           </p>
           <Button
             variant="large"

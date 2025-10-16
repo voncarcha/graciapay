@@ -1,0 +1,53 @@
+---
+description: Strapi integration overview for GraciaPay (Next.js 15, React 19)
+---
+
+## Purpose
+High-level guidance for integrating Strapi v4 with GraciaPay. Use alongside the other Strapi rules for env, fetch/revalidation, and typing.
+
+## Key Files
+- Root layout: [src/app/layout.tsx](mdc:src/app/layout.tsx)
+- Main page: [src/app/page.tsx](mdc:src/app/page.tsx)
+- Utilities: [src/lib/utils.ts](mdc:src/lib/utils.ts)
+- Next config: [next.config.ts](mdc:next.config.ts)
+- TS config (aliases): [tsconfig.json](mdc:tsconfig.json)
+- Env sample: [.env.sample](mdc:.env.sample)
+
+## Base Setup
+- Server URL: `process.env.NEXT_PUBLIC_STRAPI_URL` (required)
+- Admin/API token (server only): `process.env.STRAPI_API_TOKEN` (optional; avoid on client)
+- Preview secret: `process.env.STRAPI_PREVIEW_SECRET` (optional)
+
+## Data Fetching Guidelines
+- Prefer server components and async functions in route handlers/loaders.
+- Use Next 15 `fetch` caching controls:
+  - Default pages: `next: { revalidate: 300 }`
+  - Frequently changing data: `next: { revalidate: 60 }`
+  - Preview/admin views: `cache: 'no-store'`
+- Centralize Strapi calls via a small wrapper (see Strapi Fetch rule) for headers, base URL, query building, and error handling.
+
+## Content Modeling Notes (Strapi v4)
+- Use `populate=*` selectively instead of globally; prefer explicit population of relations/media.
+- Normalize responses to app-friendly shapes (see Strapi Types rule) to keep components clean.
+- Consider single-types for site-wide content and collection-types for lists.
+
+## Images and Media
+- Host media from Strapi. Use absolute URLs: `new URL(path, STRAPI_URL).toString()`.
+- Configure Next Image remote patterns in [next.config.ts](mdc:next.config.ts) to allow Strapi domain.
+- Prefer `width`, `height`, and `alt` from Strapi metadata when available.
+
+## Security
+- Do not expose `STRAPI_API_TOKEN` to client components.
+- Validate and sanitize query params sent to Strapi.
+- Handle errors with typed results. Do not leak Strapi internals to the UI.
+
+## SEO / Draft Preview
+- Support preview mode by toggling `publicationState=draft` and disabling cache (`no-store`).
+- Use the preview secret for secure access to draft content.
+
+## Internationalization (if enabled)
+- Include `locale` in queries and respect Strapi locales.
+
+## Error Handling
+- Return typed error objects from the wrapper. Log server-side details, show generic UI messages.
+
