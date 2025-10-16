@@ -99,7 +99,6 @@ const PaymentPartnerSection = () => {
                 <Image
                   src={item.image}
                   alt={item.name}
-                  quality={100}
                   priority
                   width={80}
                   height={80}
@@ -112,7 +111,6 @@ const PaymentPartnerSection = () => {
                 <Image
                   src={item.image}
                   alt={item.name}
-                  quality={100}
                   priority
                   width={80}
                   height={80}

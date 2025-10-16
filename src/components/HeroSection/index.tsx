@@ -78,7 +78,6 @@ const HeroSection: React.FC = () => {
             width={554}
             height={670}
             sizes="100vw"
-            quality={100}
             priority
           />
         </picture>
