@@ -18,7 +18,7 @@ const TopNavigation = () => {
       <nav
         className={`${
           isOpen ? "bg-[rgba(255,255,255,0.95)]" : "bg-glass"
-        } mt-4 px-4 max-w-[1280px] mx-auto rounded-[40px]`}
+        } mt-4 px-4 max-w-[1280px] mx-auto rounded-[40px] hover:!bg-[rgba(255,255,255,0.8)] transition-all duration-300`}
       >
         <div className="h-[80px] flex items-center justify-between gap-4 max-w-[1240px] mx-auto">
           <Link href="/" className="flex items-center gap-2">
