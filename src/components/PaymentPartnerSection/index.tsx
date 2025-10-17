@@ -83,7 +83,7 @@ const PaymentPartnerSection = () => {
   }, []);
 
   return (
-    <section className="w-full relative px-6 py-10 bg-dark-blue">
+    <section className="w-full relative px-6 py-10 bg-dark-blue" id="partners">
       <div className="max-w-[1280px] mx-auto overflow-hidden">
         <h3 className="text-md font-[700] tracking-widest uppercase text-white text-center mb-6">
           our payment partners

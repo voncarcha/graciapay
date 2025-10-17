@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-type ButtonVariant = "default" | "outlined" | "large";
+type ButtonVariant = "default" | "outlined" | "outlinedWhite" | "large";
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -20,6 +20,8 @@ const variantClasses: Record<ButtonVariant, string> = {
     "text-white text-lg border-transparent h-[54px] bg-gradient-to-r from-primary to-red hover:bg-gradient-to-l",
   outlined:
     "border-2 text-red border-red hover:border-primary hover:text-primary",
+  outlinedWhite:
+    "border-2 text-white border-white hover:opacity-80",
 };
 
 const Button: React.FC<ButtonProps> = ({

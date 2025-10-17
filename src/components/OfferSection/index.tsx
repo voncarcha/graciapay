@@ -5,53 +5,17 @@ import {
   createStaggerAnimation,
   refreshScrollTriggersDelayed,
 } from "@/lib/gsap";
+import { OfferItem } from "@/types";
+import Markdown from "@/components/ui/Markdown";
+import { OFFER_ITEMS } from "./constants";
 
-const OFFER_ITEMS = [
-  {
-    title: "Unified Merchant Dashboard",
-    items: [
-      "Manage all your digital payment transactions from a single interface — with real-time insights, reports, and downloadables.",
-    ],
-  },
-  {
-    title: "All-in-One Payment Acceptance",
-    items: [
-      "QRPH (Universal QR Code)",
-      "InstaPay & PESONet for bank transfers",
-      "Debit/Credit Card acceptance (via GraciaPay’s POS or online gateway)",
-      "Wallets & ePayments: GCash, Maya, GrabPay, ShopeePay",
-      "Over-the-counter integration (optional)",
-    ],
-  },
-  {
-    title: "Fast, BSP-Regulated Settlements",
-    items: [
-      "All payments are settled to your designated bank account via Gracia, typically by the next banking day, with full compliance to local regulations.",
-    ],
-  },
-  {
-    title: "Full-Service Support",
-    items: [
-      "GraciaPay provides end-to-end services including:",
-      "Merchant onboarding",
-      "Transaction dispute management",
-      "Customer service",
-      "Technical assistance",
-      "Risk & fraud monitoring",
-    ],
-  },
-  {
-    title: "Developer Tools & Plugins",
-    items: [
-      "Access a suite of REST APIs and plug-and-play integrations for:",
-      "POS systems",
-      "eCommerce platforms",
-      "Mobile apps",
-    ],
-  },
-];
-
-const OfferSection = () => {
+const OfferSection = ({
+  title = "Title for the Offer Section",
+  offers = [],
+}: {
+  offers?: OfferItem[];
+  title?: string;
+}) => {
   useEffect(() => {
     const cleanupHead = createStaggerAnimation(".offer-animate-head", {
       staggerAmount: 0.2,
@@ -70,15 +34,21 @@ const OfferSection = () => {
       clearRefresh();
     };
   }, []);
+
+  const items = offers && offers.length > 0 ? offers : OFFER_ITEMS;
+
   return (
-    <section className="w-full relative px-4 md:pt-[100px] md:pb-[100px] pt-[50px] pb-[50px] flex items-center max-md:mb-[100px]" id="payment-gateway">
+    <section
+      className="w-full relative px-4 md:pt-[100px] md:pb-[100px] pt-[50px] pb-[50px] flex items-center max-md:mb-[100px]"
+      id="payment-gateway"
+    >
       <article className="w-full max-w-[1280px] mx-auto">
         <h2 className="offer-animate-head text-4xl md:text-5xl mb-10 mt-4 font-[900] text-center">
-          What We <span className="text-primary">Offer</span>
+          {title}
         </h2>
         <div className="w-full relative z-10">
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {OFFER_ITEMS.map((item, index) => {
+            {items.map((item, index) => {
               const isLastItem = index === OFFER_ITEMS.length - 1;
               const isOddCount = OFFER_ITEMS.length % 2 !== 0;
               const shouldSpanFullWidth = isLastItem && isOddCount;
@@ -90,19 +60,10 @@ const OfferSection = () => {
                     shouldSpanFullWidth ? "md:col-span-2" : ""
                   }`}
                 >
-                  <h3 className="text-2xl text-primary font-[700]">
+                  <h3 className="text-2xl text-primary font-[700] mb-4">
                     {item.title}
                   </h3>
-                  <ul className="space-y-2 mt-2">
-                    {item.items?.map((item) => (
-                      <li
-                        key={item}
-                        className="text-md font-[400] list-disc list-outside ml-4"
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                  <Markdown content={item.content ?? ""} />
                 </li>
               );
             })}

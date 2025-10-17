@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "../Button";
+import Button from "../ui/Button";
 import { TextAlignJustify, X } from "lucide-react";
 
 const TopNavigation = () => {
@@ -18,7 +18,7 @@ const TopNavigation = () => {
       <nav
         className={`${
           isOpen ? "bg-[rgba(255,255,255,0.95)]" : "bg-glass"
-        } mt-4 px-4 max-w-[1280px] mx-auto rounded-[40px] hover:!bg-[rgba(255,255,255,0.8)] transition-all duration-300`}
+        } mt-4 px-4 max-w-[1280px] mx-auto rounded-[40px]`}
       >
         <div className="h-[80px] flex items-center justify-between gap-4 max-w-[1240px] mx-auto">
           <Link href="/" className="flex items-center gap-2">
@@ -31,28 +31,25 @@ const TopNavigation = () => {
             />
           </Link>
           <aside className="hidden items-center gap-4 lg:flex">
-            <div className="flex items-center gap-4 xl:gap-6 xl:mr-6">
-              <Link href="/" className="text-primary hover:underline">
+            <div className="flex text-white items-center gap-4 xl:gap-6 xl:mr-6">
+              <Link href="/" className="hover:underline">
                 Home
               </Link>
-              <Link
-                href="/#payment-gateway"
-                className="text-primary hover:underline"
-              >
+              <Link href="/#payment-gateway" className="hover:underline">
                 Payment Gateway
               </Link>
-              <Link href="/" className="text-primary hover:underline">
+              <Link href="/" className="hover:underline">
                 Merchant Form
               </Link>
               <a
                 href="https://apidoc.graciapay.com/"
-                className="text-primary hover:underline"
+                className="hover:underline"
               >
                 API Reference
               </a>
             </div>
             <Button
-              variant="outlined"
+              variant="outlinedWhite"
               className="w-[120px]"
               onClick={() =>
                 window.open("https://merchants.graciapay.com", "_blank")

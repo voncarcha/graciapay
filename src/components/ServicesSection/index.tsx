@@ -2,7 +2,11 @@
 
 import React, { useEffect } from "react";
 import Image from "next/image";
-import { createStaggerAnimation, refreshScrollTriggersDelayed } from "@/lib/gsap";
+import {
+  createStaggerAnimation,
+  refreshScrollTriggersDelayed,
+} from "@/lib/gsap";
+import Markdown from "../ui/Markdown";
 
 const WHO_CAN_USE_ITEMS = [
   {
@@ -27,22 +31,32 @@ const WHO_CAN_USE_ITEMS = [
   },
 ];
 
-const WhoCanUseSection = () => {
+const ServicesSection = ({
+  title = "Title for the Services Section",
+  description = "Description for the Services Section",
+  content = "Content for the Services Section",
+}: {
+  title?: string;
+  description?: string;
+  content?: string;
+}) => {
   useEffect(() => {
-    const cleanupHeading = createStaggerAnimation(
-      ".who-can-use-section h2",
-      { delay: 150, duration: 0.8 }
-    );
+    const cleanupHeading = createStaggerAnimation(".who-can-use-section h2", {
+      delay: 150,
+      duration: 0.8,
+    });
 
-    const cleanupParagraphs = createStaggerAnimation(
-      ".who-can-use-section p",
-      { delay: 200, duration: 0.8, staggerAmount: 0.2 }
-    );
+    const cleanupParagraphs = createStaggerAnimation(".who-can-use-section p", {
+      delay: 200,
+      duration: 0.8,
+      staggerAmount: 0.2,
+    });
 
-    const cleanupListItems = createStaggerAnimation(
-      ".who-can-use-section li",
-      { delay: 250, duration: 0.8, staggerAmount: 0.6 }
-    );
+    const cleanupListItems = createStaggerAnimation(".who-can-use-section li", {
+      delay: 250,
+      duration: 0.8,
+      staggerAmount: 0.6,
+    });
 
     const cleanupRefresh = refreshScrollTriggersDelayed(600);
 
@@ -55,14 +69,10 @@ const WhoCanUseSection = () => {
   }, []);
 
   return (
-    <section className="who-can-use-section">
+    <section className="who-can-use-section" id="services">
       <article className="w-full max-w-[1280px] mx-auto text-center mb-[150px]">
-        <h2 className="text-4xl md:text-5xl font-[900]">
-          Who Can Use <span className="text-primary">GraciaPay?</span>
-        </h2>
-        <p className="text-lg font-[400] mt-6">
-          We serve a wide range of businesses
-        </p>
+        <h2 className="text-4xl md:text-5xl font-[900]">{title}</h2>
+        <p className="text-lg font-[400] mt-6">{description}</p>
       </article>
       <div className="w-full h-auto lg:h-[300px] bg-dark-blue">
         <ul className="flex items-center gap-4 mx-auto justify-center relative top-[-100px] px-6 flex-wrap lg:flex-nowrap">
@@ -85,13 +95,12 @@ const WhoCanUseSection = () => {
             </li>
           ))}
         </ul>
-        <p className="text-lg font-[400] mt-[-50px] text-center text-white lg:pb-0 pb-10 px-6">
-          If you’re a Philippine-registered business with a bank account and
-          valid documents, you can start in just 1–3 days.
-        </p>
+        <div className="text-lg font-[400] mt-[-50px] text-center text-white lg:pb-0 pb-10 px-6 flex items-center justify-center">
+          {content}
+        </div>
       </div>
     </section>
   );
 };
 
-export default WhoCanUseSection;
+export default ServicesSection;

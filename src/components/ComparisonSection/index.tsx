@@ -3,24 +3,34 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import { SquareCheckBig, X } from "lucide-react";
-import { createStaggerAnimation, refreshScrollTriggersDelayed } from "@/lib/gsap";
+import {
+  createStaggerAnimation,
+  refreshScrollTriggersDelayed,
+} from "@/lib/gsap";
 
-const ChooseSection = () => {
+const ComparisonSection = ({
+  title = "Title for the Comparison Section",
+  description = "Description for the Comparison Section",
+}: {
+  title?: string;
+  description?: string;
+}) => {
   useEffect(() => {
-    const cleanupH2 = createStaggerAnimation(
-      ".choose-section article h2",
-      { delay: 120, duration: 0.8 }
-    );
+    const cleanupH2 = createStaggerAnimation(".choose-section article h2", {
+      delay: 120,
+      duration: 0.8,
+    });
 
     const cleanupParagraph = createStaggerAnimation(
       ".choose-section article p",
       { delay: 200, duration: 0.8 }
     );
 
-    const cleanupListItems = createStaggerAnimation(
-      ".choose-section li",
-      { delay: 260, duration: 0.8, staggerAmount: 0.6 }
-    );
+    const cleanupListItems = createStaggerAnimation(".choose-section li", {
+      delay: 260,
+      duration: 0.8,
+      staggerAmount: 0.6,
+    });
 
     const cleanupRefresh = refreshScrollTriggersDelayed(600);
 
@@ -36,20 +46,28 @@ const ChooseSection = () => {
     <section className="w-full relative px-4 py-10 choose-section">
       <article className="w-full max-w-[1280px] mx-auto">
         <h2 className="text-4xl md:text-5xl mt-4 font-[900] text-center">
-          Why Choose <span className="text-primary">GraciaPay</span>
+          {title}
         </h2>
         <p className="text-lg font-[400] mt-6 text-center">
-          We serve a wide range of businesses:
+          {description}
         </p>
       </article>
       <ul className="mt-10 max-w-[1280px] mx-auto flex flex-col gap-4">
         <li className="flex items-center gap-2 border-dark-blue border-2 rounded-2xl px-8 py-4">
           <span className="text-md md:text-lg font-[400] flex-[0_0_40%]"></span>
           <span className="flex-[0_0_30%] flex items-center justify-center">
-            <Image src="/images/logo.png" alt="Logo" width={56} height={56} className="h-auto" />
+            <Image
+              src="/images/logo.png"
+              alt="Logo"
+              width={56}
+              height={56}
+              className="h-auto"
+            />
           </span>
           <span className="flex-[0_0_30%] flex items-center justify-center">
-            <span className="font-bold text-sm lg:text-lg">Tradional Providers</span>
+            <span className="font-bold text-sm lg:text-lg">
+              Tradional Providers
+            </span>
           </span>
         </li>
         <li className="flex items-center gap-2 border-dark-blue border-2 rounded-2xl px-4 md:px-8 py-6">
@@ -151,4 +169,4 @@ const ChooseSection = () => {
   );
 };
 
-export default ChooseSection;
+export default ComparisonSection;

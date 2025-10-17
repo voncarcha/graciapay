@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { createStaggerAnimation, refreshScrollTriggersDelayed } from "@/lib/gsap";
 
-const RequirementSection = () => {
+const RequirementSection = ({ title = "Title for the Requirement Section" }: { title?: string }) => {
   useEffect(() => {
     const cleanupH2 = createStaggerAnimation(
       ".requirement-section h2",
@@ -26,8 +26,8 @@ const RequirementSection = () => {
   }, []);
 
   return (
-    <section className="w-full relative px-6 py-10 requirement-section">
-      <h2 className="text-4xl md:text-5xl mt-10 font-[900] text-center"><span className="text-primary">GraciaPay</span> Requirements</h2>
+    <section className="w-full relative px-6 py-10 requirement-section" id="requirements">
+      <h2 className="text-4xl md:text-5xl mt-10 font-[900] text-center">{title}</h2>
       <picture className="w-full max-w-[1280px] mx-auto block justify-center items-center mt-0 lg:mt-[-100px]">
         <source srcSet="/images/bg-requirements.webp" type="image/webp" />
         <Image

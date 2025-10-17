@@ -2,24 +2,38 @@
 
 import React, { useEffect } from "react";
 import Image from "next/image";
-import { createStaggerAnimation, refreshScrollTriggersDelayed } from "@/lib/gsap";
+import {
+  createStaggerAnimation,
+  refreshScrollTriggersDelayed,
+} from "@/lib/gsap";
 
-const GovSection = () => {
+const StepsSection = ({
+  title = "Title for the Steps Section",
+  step1 = "Step 1 for the Steps Section",
+  step2 = "Step 2 for the Steps Section",
+  step3 = "Step 3 for the Steps Section",
+}: {
+  title?: string;
+  step1?: string;
+  step2?: string;
+  step3?: string;
+}) => {
   useEffect(() => {
-    const cleanupPicture = createStaggerAnimation(
-      ".gov-section picture",
-      { delay: 120, duration: 0.9 }
-    );
+    const cleanupPicture = createStaggerAnimation(".gov-section picture", {
+      delay: 120,
+      duration: 0.9,
+    });
 
-    const cleanupH2 = createStaggerAnimation(
-      ".gov-section h2",
-      { delay: 200, duration: 0.8 }
-    );
+    const cleanupH2 = createStaggerAnimation(".gov-section h2", {
+      delay: 200,
+      duration: 0.8,
+    });
 
-    const cleanupLis = createStaggerAnimation(
-      ".gov-section li",
-      { delay: 280, duration: 0.8, staggerAmount: 0.6 }
-    );
+    const cleanupLis = createStaggerAnimation(".gov-section li", {
+      delay: 280,
+      duration: 0.8,
+      staggerAmount: 0.6,
+    });
 
     const cleanupRefresh = refreshScrollTriggersDelayed(600);
 
@@ -46,33 +60,26 @@ const GovSection = () => {
           </picture>
           <article className="flex-1 text-white">
             <h2 className="text-3xl md:text-5xl font-bold leading-[1.4]">
-              Start Accepting
-              <br />
-              Digital Payments
+              {title}
             </h2>
             <ul className="mt-6 md:mt-12 flex flex-col gap-4">
               <li className="flex gap-6 items-center">
                 <span className="bg-primary text-white px-4 py-1 rounded-full text-sm font-bold flex-[0_0_82px] text-center block">
                   STEP 1
                 </span>
-                <p className="flex-1">
-                  Complete the [Merchant Application Form]
-                </p>
+                <p className="flex-1">{step1}</p>
               </li>
               <li className="flex gap-6 items-center">
                 <span className="bg-primary text-white px-4 py-1 rounded-full text-sm font-bold flex-[0_0_82px] text-center block">
                   STEP 2
                 </span>
-                <p className="flex-1">Submit your required documents</p>
+                <p className="flex-1">{step2}</p>
               </li>
               <li className="flex gap-6 items-center">
                 <span className="bg-primary text-white px-4 py-1 rounded-full text-sm font-bold flex-[0_0_82px] text-center block">
                   STEP 3
                 </span>
-                <p>
-                  Activate your merchant dashboard and go live within 1–3
-                  business days
-                </p>
+                <p>{step3}</p>
               </li>
             </ul>
           </article>
@@ -82,4 +89,4 @@ const GovSection = () => {
   );
 };
 
-export default GovSection;
+export default StepsSection;
